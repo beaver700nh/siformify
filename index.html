@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Slope Calculator</title>
+    <link href="favicon.ico"          rel="icon"       type="image/x-icon" />
+    <link href="style.css"            rel="stylesheet" type="text/css" />
+    <link href="katex-0.15.3.min.css" rel="stylesheet" type="text/css" />
+    <script defer src="katex-0.15.3.min.js"            type="text/javascript"></script>
+    <script       src="math-10.5.0.min.js"             type="text/javascript"></script>
+  </head>
+  <div>
+    <div id="wrapper">
+      <div id="main">
+        <h1 id="head">Slope-Intercept Form Calculator</h1>
+        <div id="ctrl">
+          <span>Calculate...</span>
+          <select id="mode">
+            <option data-in="2p"    data-out="eqn">equation from 2 points</option>
+            <option data-in="1p-1m" data-out="eqn">equation from a point and a slope</option>
+            <option data-in="2p-1m" data-out="crd">missing coordinate from 2 points and a slope</option>
+          </select>
+          <button id="set">Set Mode</button>
+        </div>
+        <div id="in">
+          <h3>Input</h3>
+          <template id="tmp-point">
+            <div class="input-box input-point">
+              <span>Input a point:</span>
+              <span class="ktx" data-ktx="\lparen"></span>
+              <input type="text"></input>
+              <span class="ktx" data-ktx=", "></span>
+              <input type="text"></input>
+              <span class="ktx" data-ktx="\rparen"></span>
+            </div>
+          </template>
+          <template id="tmp-slope">
+            <div class="input-box input-slope">
+              <span>Input a slope:</span>
+              <span class="ktx" data-ktx="m="></span>
+              <input type="text"></input>
+            </div>
+          </template>
+          <span id="in-msg">Set the calculation mode first!</span>
+        </div>
+        <div id="out">
+          <h3>Output</h3>
+          <span id="out-msg">Then click calculate button to see output!</span>
+          <span id="dst">Output will appear here.</span>
+        </div>
+        <div id="how">
+          <span>Show non-integers as...</span>
+          <select id="repr">
+            <option value="frac">fractions</option>
+            <option value="decm">decimals</option>
+          </select>
+        </div>
+        <button id="go">CALCULATE!</button>
+      </div>
+    </div>
+
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="util.js"             type="text/javascript"></script>
+    <script src="frontend.js"         type="text/javascript"></script>
+    <script src="calc.js"             type="text/javascript"></script>
+    <script src="script.js"           type="text/javascript"></script>
+  </body>
+</html>
