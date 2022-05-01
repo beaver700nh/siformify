@@ -106,9 +106,14 @@ button:active {
 .input-box {
   border: 2px solid cornflowerblue;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
 }
 
-.input-box > input {
+.input-box > span > input {
   background-color: aliceblue;
   border: 1px solid cornflowerblue;
   border-radius: 3px;

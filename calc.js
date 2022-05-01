@@ -95,10 +95,10 @@ function calculate_crd_from_2p_1m() {
   let solved = null, which = null;
   
   switch (null) {
-  case p1x: solved = (p2x + (p2y - p1y) / -s); which = "x_1"; break;
-  case p2x: solved = (p1x + (p2y - p1y) /  s); which = "x_2"; break;
-  case p1y: solved = (p2y + (p2x - p1x) * -s); which = "y_1"; break;
-  case p2y: solved = (p1y + (p2x - p1x) *  s); which = "y_2"; break;
+  case p1x: solved = math.add(p2x, math.divide  (math.subtract(p2y, p1y), math.subtract(0, s))); which = "x_1"; break;
+  case p2x: solved = math.add(p1x, math.divide  (math.subtract(p2y, p1y),                   s)); which = "x_2"; break;
+  case p1y: solved = math.add(p2y, math.multiply(math.subtract(p2x, p1x), math.subtract(0, s))); which = "y_1"; break;
+  case p2y: solved = math.add(p1y, math.multiply(math.subtract(p2x, p1x),                   s)); which = "y_2"; break;
   }
 
   if (solved === null || which === null) {
@@ -106,6 +106,26 @@ function calculate_crd_from_2p_1m() {
   }
 
   return `${which}=${solved}`;
+}
+
+function calculate_xic_from_1e() {
+  /*
+   * X-Intercept: f(x) = mx + b = 0
+   *
+   * mx = -b
+   * x = -b / m
+   */
+
+  let m = get_input_val(get_input_box(0), 0);
+  let b = get_input_val(get_input_box(0), 1);
+
+  if (m === null || b === null) {
+    return error_msg_ktx("Error: You must specify both slope and y-intercept.");
+  }
+
+  let x = get_ktx_from_num(math.divide(math.subtract(0, b), m));
+
+  return `y=0\\space\\text{when}\\space x=${x}`;
 }
 
 function calculate_ktx(mode) {
@@ -117,6 +137,9 @@ function calculate_ktx(mode) {
   }
   else if (mode.input === "2p-1m" && mode.output === "crd") {
     return calculate_crd_from_2p_1m();
+  }
+  else if (mode.input === "1e" && mode.output === "xic") {
+    return calculate_xic_from_1e();
   }
   else {
     return error_msg_ktx(`Error: unable to calculate ${mode.output} from ${mode.input}.`);

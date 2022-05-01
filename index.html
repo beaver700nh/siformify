@@ -21,6 +21,7 @@
             <option data-in="2p"    data-out="eqn">equation from 2 points</option>
             <option data-in="1p-1m" data-out="eqn">equation from a point and a slope</option>
             <option data-in="2p-1m" data-out="crd">missing coordinate from 2 points and a slope</option>
+            <option data-in="1e"    data-out="xic">x-intercept from an equation</option>
           </select>
           <button id="set">Set Mode</button>
         </div>
@@ -29,18 +30,33 @@
           <template id="tmp-point">
             <div class="input-box input-point">
               <span>Input a point:</span>
-              <span class="ktx" data-ktx="\lparen"></span>
-              <input type="text"></input>
-              <span class="ktx" data-ktx=", "></span>
-              <input type="text"></input>
-              <span class="ktx" data-ktx="\rparen"></span>
+              <span>
+                <span class="ktx" data-ktx="\lparen"></span>
+                <input type="text"></input>
+                <span class="ktx" data-ktx=",\space"></span>
+                <input type="text"></input>
+                <span class="ktx" data-ktx="\rparen"></span>
+              </span>
             </div>
           </template>
           <template id="tmp-slope">
             <div class="input-box input-slope">
               <span>Input a slope:</span>
-              <span class="ktx" data-ktx="m="></span>
-              <input type="text"></input>
+              <span>
+                <span class="ktx" data-ktx="m="></span>
+                <input type="text"></input>
+              </span>
+            </div>
+          </template>
+          <template id="tmp-sif">
+            <div class="input-box input-sif">
+              <span>Input an equation in slope-intercept form:</span>
+              <span>
+                <span class="ktx" data-ktx="y="></span>
+                <input type="text"></input>
+                <span class="ktx" data-ktx="x\space+"></span>
+                <input type="text"></input>
+              </span>
             </div>
           </template>
           <span id="in-msg">Set the calculation mode first!</span>

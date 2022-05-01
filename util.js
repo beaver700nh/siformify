@@ -21,6 +21,7 @@ function input_type_to_template(typ) {
   switch (typ) {
   case "p": return $("#tmp-point");
   case "m": return $("#tmp-slope");
+  case "e": return $("#tmp-sif");
   }
 
   return null;
