@@ -39,6 +39,10 @@ function calculate_eqn_from_2p() {
     return error_msg_ktx("Error: You forgot a box or two.");
   }
 
+  if (math.equal(p1.x, p2.x) && math.equal(p1.y, p2.y)) {
+    return error_msg_ktx("Error: The two points may not be equal.");
+  }
+
   let rise = math.subtract(p2.y, p1.y);
   let run  = math.subtract(p2.x, p1.x);
 
@@ -90,6 +94,18 @@ function calculate_crd_from_2p_1m() {
 
   if (missing > 1) {
     return error_msg_ktx("Error: Too many missing coordinates.");
+  }
+
+  if (math.equal(p1y, p2y)) {
+    return error_msg_ktx("Error: Cannot deduce x if y1 = y2.");
+  }
+
+  if (math.equal(s, 0)) {
+    return error_msg_ktx("Error: Slope may not be zero.");
+  }
+
+  if (math.equal(p1x, p2x)) {
+    return error_msg_ktx("Error: Cannot deduce y if x1 = x2, OR this is not a function.");
   }
 
   let solved = null, which = null;

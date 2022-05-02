@@ -135,6 +135,8 @@ button:active {
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  overflow-wrap: normal;
+  word-wrap: normal;
 }
 
 #go {
