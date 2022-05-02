@@ -141,6 +141,15 @@ function calculate_xic_from_1e() {
     return error_msg_ktx("Error: You must specify both slope and y-intercept.");
   }
 
+  if (math.equal(m, 0)) {
+    if (math.equal(b, 0)) {
+      return "y\\space\\text{is always}\\space 0";
+    }
+    else {
+      return "y\\space\\text{is never}\\space 0";
+    }
+  }
+
   let x = get_ktx_from_num(math.divide(math.subtract(0, b), m));
 
   return `y=0\\space\\text{when}\\space x=${x}`;
