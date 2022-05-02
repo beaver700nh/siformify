@@ -105,6 +105,8 @@ function calculate_crd_from_2p_1m() {
     return error_msg_ktx("Error: The program reached an impossible state!");
   }
 
+  solved = get_ktx_from_num(solved);
+
   return `${which}=${solved}`;
 }
 
