@@ -85,7 +85,7 @@ button:active {
   margin: 0px;
 }
 
-#mode {
+#mode, #repr {
   background-color: aliceblue;
   border-color: skyblue;
 }
